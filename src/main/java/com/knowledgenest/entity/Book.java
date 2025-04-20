@@ -13,13 +13,10 @@ public class Book {
     private Long bookId;
 
     private String title;
-
     private String author;
-
     private String purpose;
 
     private LocalDateTime createdAt;
-
     private LocalDateTime updatedAt;
 
     @ManyToOne
@@ -44,5 +41,31 @@ public class Book {
         this.updatedAt = LocalDateTime.now();
     }
 
-    // getter・setter は省略してもOK（Lombok を使う場合）
+    // 🔽 Getter / Setter
+    public Long getBookId() { return bookId; }
+    public void setBookId(Long bookId) { this.bookId = bookId; }
+
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getAuthor() { return author; }
+    public void setAuthor(String author) { this.author = author; }
+
+    public String getPurpose() { return purpose; }
+    public void setPurpose(String purpose) { this.purpose = purpose; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
+
+    public Status getStatus() { return status; }
+    public void setStatus(Status status) { this.status = status; }
+
+    public List<Memo> getMemos() { return memos; }
+    public void setMemos(List<Memo> memos) { this.memos = memos; }
 }

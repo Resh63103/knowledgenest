@@ -23,4 +23,27 @@ public class BookController {
     public Book createBook(@RequestBody Book book) {
         return bookRepository.save(book);
     }
+
+    @PutMapping("/{id}")
+    public Book updateBook(@PathVariable Long id, @RequestBody Book updatedBook) {
+        return bookRepository.findById(id)
+            .map(book -> {
+                book.setTitle(updatedBook.getTitle());
+                book.setAuthor(updatedBook.getAuthor());
+                book.setPurpose(updatedBook.getPurpose());
+                book.setStatus(updatedBook.getStatus());
+                book.setUser(updatedBook.getUser());
+                return bookRepository.save(book);
+            })
+            .orElseGet(() -> {
+                updatedBook.setBookId(id);
+                return bookRepository.save(updatedBook);
+            });
+}
+
+// 書籍削除
+@DeleteMapping("/{id}")
+public void deleteBook(@PathVariable Long id) {
+    bookRepository.deleteById(id);
+}
 }

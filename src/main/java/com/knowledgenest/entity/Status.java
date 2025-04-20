@@ -11,22 +11,17 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long statusId;
 
-    private String status;
+    private String statusName;
 
     @OneToMany(mappedBy = "status", cascade = CascadeType.ALL)
     private List<Book> books;
 
-    // getter・setter
-    public Long getStatusId() {
-        return statusId;
-    }
-    public void setStatusId(Long statusId) {
-        this.statusId = statusId;
-    }
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    public Long getStatusId() { return statusId; }
+    public void setStatusId(Long statusId) { this.statusId = statusId; }
+
+    public String getStatusName() { return statusName; }
+    public void setStatusName(String statusName) { this.statusName = statusName; }
+
+    public List<Book> getBooks() { return books; }
+    public void setBooks(List<Book> books) { this.books = books; }
 }

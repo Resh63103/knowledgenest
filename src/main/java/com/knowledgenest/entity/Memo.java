@@ -12,11 +12,7 @@ public class Memo {
     private Long memoId;
 
     private String content;
-
-    private String quote;
-
     private LocalDateTime createdAt;
-
     private LocalDateTime updatedAt;
 
     @ManyToOne
@@ -34,5 +30,18 @@ public class Memo {
         this.updatedAt = LocalDateTime.now();
     }
 
-    // getter・setter は省略してもOK
+    public Long getMemoId() { return memoId; }
+    public void setMemoId(Long memoId) { this.memoId = memoId; }
+
+    public String getContent() { return content; }
+    public void setContent(String content) { this.content = content; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+
+    public Book getBook() { return book; }
+    public void setBook(Book book) { this.book = book; }
 }
